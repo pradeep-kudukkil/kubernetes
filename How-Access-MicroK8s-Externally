@@ -1,0 +1,18 @@
+Modify Certificate Configuration:
+/var/snap/microk8s/current/certs/csr.conf.template  
+IP.3 = <private_ip>  
+IP.4 = <public_ip> 
+Add private and public IPs to the certificate configuration.
+
+Verify Certificate Details:
+openssl x509 -in /var/snap/microk8s/current/certs/server.crt -text -noout  
+Check if the certificate includes the public IP.
+
+Regenerate Certificates (if public IP is missing):
+sudo microk8s refresh-certs --cert server.crt  
+microk8s stop  
+microk8s start  
+
+Generate and Modify Kubeconfig:
+microk8s config > kubeconfig.yaml  
+Export kubeconfig and update it with the public IP for external access.
