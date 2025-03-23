@@ -19,4 +19,4 @@ jobs:
 
       - name: Deploy to MicroK8s
         run: |
-          kubectl apply -f deploymenty.yaml
+          kubectl apply -f deployment.yaml
