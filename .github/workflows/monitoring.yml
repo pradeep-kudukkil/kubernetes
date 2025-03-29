@@ -20,4 +20,4 @@ jobs:
       - name: Deploy to MicroK8s
         run: |
           cd monitoring
-          kubectl delete -f .
+          kubectl apply -f .
